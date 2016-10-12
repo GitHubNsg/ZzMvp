@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f8f8f8">
+
+    <include layout="@layout/title_bar"/>
+
+    <!--顶部显示后台下发文字-->
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/remindLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleBarLayout"/>
+
+    <com.jieyue.jieyue.ui.widget.AutoSwipeRefreshLayout
+        android:id="@+id/mSwipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/remindLayout"
+        android:paddingBottom="20px">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none">
+        </android.support.v7.widget.RecyclerView>
+
+    </com.jieyue.jieyue.ui.widget.AutoSwipeRefreshLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

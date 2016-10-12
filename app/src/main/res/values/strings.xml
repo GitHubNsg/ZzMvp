@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">ZzMvp</string>
 
-    <string name="back">返回</string>
+    <string-array name="main_tabs">
+        <item>推荐</item>
+        <item>发现</item>
+        <item>我的</item>
+        <item>设置</item>
+    </string-array>
 </resources>

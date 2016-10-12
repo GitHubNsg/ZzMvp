@@ -3,6 +3,7 @@ package com.zzm.zzmlibrary.common;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
 
@@ -28,21 +29,34 @@ public class BaseApplication extends Application {
     public static long MainThreadId;
     private static Handler handler;
     public static int mNetWorkState;
+
+    public static int titleBarBackgroundColor;
+    public static int titleBarTextColor;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
-        LogUtils.init(this);
+        Constants.init(this);
         mApplication = this;
         handler = new Handler();
         MainThreadId = android.os.Process.myTid();
         mNetWorkState = TDevice.getNetworkType();
         // 设置错误的管理器抓取异常信息
         Thread.setDefaultUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
+        //配置资源文件
+        initResource();
         //配置第三方SDK
         initService();
     }
 
-    private void initService() {
+    protected void initResource() {
+        titleBarTextColor = Color.parseColor("#ffffff");
+        titleBarBackgroundColor = Color.parseColor("#000000");
+
+    }
+
+    protected void initService() {
         initOkHttp();
         initShare();
         initPush();
@@ -52,19 +66,19 @@ public class BaseApplication extends Application {
     /**
      * 配置阿里云推送,如果是小米或者华为手机则注册为系统级服务，否则跳过
      */
-    private void initPush() {
+    protected void initPush() {
     }
 
     /**
      * 配置友盟分享平台
      */
-    private void initShare() {
+    protected void initShare() {
     }
 
     /**
      * 配置OkHttpClient
      */
-    public void initOkHttp(){
+    protected void initOkHttp(){
         CookieJarImpl cookieJar = new CookieJarImpl(new PersistentCookieStore(mApplication));
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -96,7 +110,7 @@ public class BaseApplication extends Application {
      * 处理捕获的错误
      * @param ex
      */
-    public void dealWrongText(Throwable ex) {
+    protected void dealWrongText(Throwable ex) {
 //        FileUtil.write(application,"app_wrong.txt",ex.toString());
         //程序闪退或anr重新打开app
             /*if(!LogUtils.APP_DBG && BaseActivity.activity != null
