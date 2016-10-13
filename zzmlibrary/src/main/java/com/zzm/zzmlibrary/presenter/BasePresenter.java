@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.Callback;
 import com.zzm.zzmlibrary.manager.net.StringCallBack;
 import com.zzm.zzmlibrary.model.BaseListView;
 import com.zzm.zzmlibrary.model.BaseView;
@@ -74,7 +75,7 @@ public class BasePresenter {
     /**
      * 执行get请求
      */
-    public void getRequest(String url,StringCallBack callBack){
+    public void getRequest(String url,Callback callBack){
         if(!checkUrl(url)) return;
         OkHttpUtils.get().url(url).tag(url).build().execute(callBack);
     }
@@ -82,7 +83,7 @@ public class BasePresenter {
     /**
      * 执行Post请求
      */
-    public void postRequest(String url,String[][] body,StringCallBack callBack){
+    public void postRequest(String url,String[][] body,Callback callBack){
         if(!checkUrl(url)) return;
         HashMap<String, String> paramMap = new HashMap<>();
         for(int i=0;i<body.length;i++){
@@ -94,7 +95,7 @@ public class BasePresenter {
     /**
      * 执行Post请求
      */
-    public void postRequest(String url,HashMap body,StringCallBack callBack){
+    public void postRequest(String url,HashMap body,Callback callBack){
         if(!checkUrl(url)) return;
         OkHttpUtils.postString().url(url).mediaType(MediaType.parse("application/json; charset=utf-8")).tag(url).content(new Gson().toJson(body)).build().execute(callBack);
     }
@@ -102,12 +103,12 @@ public class BasePresenter {
     /**
      * 执行Post请求
      */
-    public void postRequest(String url,String body,StringCallBack callBack){
+    public void postRequest(String url,String body,Callback callBack){
         if(!checkUrl(url)) return;
         OkHttpUtils.postString().url(url).mediaType(MediaType.parse("application/json; charset=utf-8")).tag(url).content(body).build().execute(callBack);
     }
 
-    private boolean checkUrl(String url){
+    public boolean checkUrl(String url){
         if(TextUtils.isEmpty(url)){
             LogUtils.d("url为空，不加载数据");
             return false;

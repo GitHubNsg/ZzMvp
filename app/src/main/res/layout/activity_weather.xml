@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <com.zzm.zzmlibrary.ui.widget.AutoScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20px"
+                android:text="城市："
+                android:textColor="@color/black_555555"
+                android:textSize="48px" />
+
+            <TextView
+                android:id="@+id/tvAir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20px"
+                android:text="空气质量："
+                android:textColor="@color/black_555555"
+                android:textSize="48px" />
+
+            <TextView
+                android:id="@+id/tvOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20px"
+                android:text="其他数据："
+                android:textColor="@color/black_555555"
+                android:textSize="48px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zzm.zzmlibrary.ui.widget.AutoScrollView>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

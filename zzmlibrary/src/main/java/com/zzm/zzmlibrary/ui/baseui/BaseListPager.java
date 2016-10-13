@@ -51,7 +51,7 @@ public abstract class BaseListPager extends BasePager implements BaseListView, B
         setOrientation();
         mListener = new PagerListener();
         mSwipeLayout.setOnRefreshListener(mListener);
-        mSwipeLayout.setColorSchemeResources(BaseApplication.titleBarBackgroundColor);
+        mSwipeLayout.setColorSchemeColors(BaseApplication.titleBarBackgroundColor);
         View emptyView = ((BaseActivity)context).getLayoutInflater().inflate(R.layout.item_empty_layout,(ViewGroup) mRecyclerView.getParent(), false);
         TextView tvNoData = UIUtils.getView(emptyView, R.id.tvNoData);
         tvNoData.setText(UIUtils.getString(R.string.click_loading));

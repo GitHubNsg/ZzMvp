@@ -18,6 +18,7 @@ import com.zzm.zzmlibrary.common.interf.NetEventHandler;
 import com.zzm.zzmlibrary.model.BaseView;
 import com.zzm.zzmlibrary.model.bean.BaseResponse;
 import com.zzm.zzmlibrary.presenter.BasePresenter;
+import com.zzm.zzmlibrary.utils.DialogUtils;
 import com.zzm.zzmlibrary.utils.LogUtils;
 import com.zzm.zzmlibrary.utils.UIUtils;
 
@@ -100,6 +101,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         super.onPause();
         activity = null;
         netListener = null;
+        DialogUtils.disDialog();
     }
 
     @Override
@@ -152,17 +154,23 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public void showLoading() {
+        DialogUtils.makeLoading(this).show();
     }
 
     public void showLoading(String str) {
+        DialogUtils.makeLoading(this).setMessage(str);
+        DialogUtils.makeLoading(this).show();
     }
 
     public void showLoading(int id) {
+        DialogUtils.makeLoading(this).setMessage(UIUtils.getString(id));
+        DialogUtils.makeLoading(this).show();
     }
 
 
     @Override
     public void hideLoading() {
+        DialogUtils.makeLoading(this).dismiss();
     }
 
     @Override

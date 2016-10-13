@@ -4,11 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.zhy.http.okhttp.OkHttpUtils;
-import com.zzm.zzmlibrary.manager.net.StringCallBack;
+import com.zzm.zzmlibrary.manager.net.DefaultStringCallBack;
 import com.zzm.zzmlibrary.model.BaseListView;
-import com.zzm.zzmlibrary.model.bean.BaseResponse;
-import com.zzm.zzmlibrary.utils.LogUtils;
-import com.zzm.zzmlibrary.utils.TDevice;
 
 import java.util.List;
 
@@ -17,16 +14,11 @@ import okhttp3.Call;
 /**
  * Created by itzhong on 2016/7/15.
  */
-public class BaseListPresenter extends BasePresenter{
+public class BaseListStringPresenter extends BaseListPresenter{
 
-    public static final int PAGESIZE = 10;
-    public int mPage = 1;
-    public Context context;
-    public int totalPage = 0;
 
-    public BaseListPresenter(Context context, BaseListView baseListView) {
+    public BaseListStringPresenter(Context context, BaseListView baseListView) {
         super(context, baseListView);
-        this.context=context;
     }
 
     /**
@@ -42,15 +34,15 @@ public class BaseListPresenter extends BasePresenter{
             return;
         }
         listView.showLoading();
-        OkHttpUtils.get().url(url).tag(url).build().execute(new StringCallBack(context) {
+        OkHttpUtils.get().url(url).tag(url).build().execute(new DefaultStringCallBack(context) {
             @Override
-            public void onResponse(BaseResponse response, int id) {
-                if(response==null||!response.isOk()||TextUtils.isEmpty(response.getData())){
+            public void onResponse(String response, int id) {
+                if(TextUtils.isEmpty(response)){
                     listView.noData();
                     return;
                 }
-                List<?> list = listView.getList(response.getData());
-                totalPage = listView.getTotalPage(response.getData());
+                List<?> list = listView.getList(response);
+                totalPage = listView.getTotalPage(response);
                 if(list!=null&&list.size()>0){
                     mPage ++;
                     listView.onRefreshView(list);
@@ -80,14 +72,14 @@ public class BaseListPresenter extends BasePresenter{
         if(!checkUrl(url))return;
         if(totalPage==0||mPage>totalPage)return;
         listView.showLoading();
-        OkHttpUtils.get().url(url).tag(url).build().execute(new StringCallBack(context) {
+        OkHttpUtils.get().url(url).tag(url).build().execute(new DefaultStringCallBack(context) {
             @Override
-            public void onResponse(BaseResponse response, int id) {
-                if(!response.isOk()||TextUtils.isEmpty(response.getData())){
+            public void onResponse(String response, int id) {
+                if(TextUtils.isEmpty(response)){
                     return;
                 }
-                List<?> list = listView.getList(response.getData());
-                totalPage = listView.getTotalPage(response.getData());
+                List<?> list = listView.getList(response);
+                totalPage = listView.getTotalPage(response);
                 if(list!=null&&list.size()>0){
                     mPage ++;
                     listView.loadMore(list);
@@ -107,30 +99,6 @@ public class BaseListPresenter extends BasePresenter{
                 listView.stopRefreshView();
             }
         });
-    }
-
-    public boolean checkUrl(String url){
-        if(TextUtils.isEmpty(url)){
-            LogUtils.d("url为空，不加载数据");
-            return false;
-        }else if(!url.startsWith("http")){
-            LogUtils.d("url类型错误");
-            return false;
-        }
-        if(TDevice.getNetworkType()==0){
-            LogUtils.e("网络连接异常");
-            listView.noNetWork();
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * 执行get请求
-     */
-    public void getRequest(String url,StringCallBack callBack){
-        if(!checkUrl(url)) return;
-        OkHttpUtils.get().url(url).tag(url).build().execute(callBack);
     }
 
 }

@@ -1,11 +1,13 @@
 package com.zzm.zzmlibrary.ui.baseui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
 import com.zzm.zzmlibrary.model.BaseView;
 import com.zzm.zzmlibrary.model.bean.BaseResponse;
 import com.zzm.zzmlibrary.presenter.BasePresenter;
+import com.zzm.zzmlibrary.utils.DialogUtils;
 
 
 /**
@@ -43,10 +45,14 @@ public abstract class BasePager implements BaseView {
     }
 
     @Override
-    public void showLoading() {}
+    public void showLoading() {
+        DialogUtils.makeLoading((Activity) context).show();
+    }
 
     @Override
-    public void hideLoading() {}
+    public void hideLoading() {
+        DialogUtils.makeLoading((Activity) context).dismiss();
+    }
 
     @Override
     public void noNetWork() {}

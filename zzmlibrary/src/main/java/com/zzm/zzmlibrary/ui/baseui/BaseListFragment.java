@@ -52,7 +52,7 @@ public abstract class BaseListFragment extends BaseFragment implements BaseListV
         fTitleBar.setVisibility(View.GONE);
         setOrientation();
         mSwipeLayout.setOnRefreshListener(listener);
-        mSwipeLayout.setColorSchemeResources(BaseApplication.titleBarBackgroundColor);
+        mSwipeLayout.setColorSchemeColors(BaseApplication.titleBarBackgroundColor);
         View view = getActivity().getLayoutInflater().inflate(R.layout.item_empty_layout,(ViewGroup) mRecyclerView.getParent(), false);
         TextView tvNoData = getView(view, R.id.tvNoData);
         tvNoData.setText(UIUtils.getString(R.string.click_loading));

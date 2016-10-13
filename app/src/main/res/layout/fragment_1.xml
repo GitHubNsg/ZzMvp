@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20px">
 
     <TextView
+        android:id="@+id/tvAct"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment1"/>
+        android:layout_height="wrap_content"
+        android:text="普通Activity"
+        android:padding="20px"
+        android:textSize="48px"
+        android:gravity="center"
+        android:textColor="@color/white_ffffff"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/tvActList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="列表Activity"
+        android:padding="20px"
+        android:textSize="48px"
+        android:gravity="center"
+        android:textColor="@color/white_ffffff"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20px"/>
+
+    <TextView
+        android:id="@+id/tvDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dialog"
+        android:padding="20px"
+        android:textSize="48px"
+        android:gravity="center"
+        android:textColor="@color/white_ffffff"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20px"/>
 
 </com.zhy.autolayout.AutoLinearLayout>

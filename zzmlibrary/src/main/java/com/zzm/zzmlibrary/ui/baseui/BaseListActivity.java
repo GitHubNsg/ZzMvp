@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.zzm.zzmlibrary.R;
 import com.zzm.zzmlibrary.common.BaseApplication;
 import com.zzm.zzmlibrary.model.BaseListView;
 import com.zzm.zzmlibrary.presenter.BaseListPresenter;
@@ -32,7 +31,7 @@ public abstract class BaseListActivity extends BaseActivity implements BaseListV
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_base_list;
+        return com.zzm.zzmlibrary.R.layout.activity_base_list;
     }
 
     @Override
@@ -43,14 +42,14 @@ public abstract class BaseListActivity extends BaseActivity implements BaseListV
             throw new NullPointerException("adapter不能为空");
         }
         listPresenter = (BaseListPresenter) presenter;
-        mSwipeLayout = getView(R.id.mSwipeLayout);
-        mRecyclerView = getView(R.id.mRecyclerView);
+        mSwipeLayout = getView(com.zzm.zzmlibrary.R.id.mSwipeLayout);
+        mRecyclerView = getView(com.zzm.zzmlibrary.R.id.mRecyclerView);
         setOrientation();
         mSwipeLayout.setOnRefreshListener(listener);
-        mSwipeLayout.setColorSchemeResources(BaseApplication.titleBarBackgroundColor);
-        View view = getLayoutInflater().inflate(R.layout.item_empty_layout,(ViewGroup) mRecyclerView.getParent(), false);
-        TextView tvNoData = getView(view, R.id.tvNoData);
-        tvNoData.setText(UIUtils.getString(R.string.click_loading));
+        mSwipeLayout.setColorSchemeColors(BaseApplication.titleBarBackgroundColor);
+        View view = getLayoutInflater().inflate(com.zzm.zzmlibrary.R.layout.item_empty_layout,(ViewGroup) mRecyclerView.getParent(), false);
+        TextView tvNoData = getView(view, com.zzm.zzmlibrary.R.id.tvNoData);
+        tvNoData.setText(UIUtils.getString(com.zzm.zzmlibrary.R.string.click_loading));
         view.setOnClickListener(v->onRefreshData());
         adapter.setEmptyView(true,view);
         adapter.openLoadAnimation();
@@ -76,10 +75,10 @@ public abstract class BaseListActivity extends BaseActivity implements BaseListV
     public void onRefreshView(List<?> list) {
         adapter.setNewData(list);
         adapter.removeAllFooterView();
-        View view = getLayoutInflater().inflate(R.layout.item_footer_layout,(ViewGroup) mRecyclerView.getParent(), false);
+        View view = getLayoutInflater().inflate(com.zzm.zzmlibrary.R.layout.item_footer_layout,(ViewGroup) mRecyclerView.getParent(), false);
         if(list.size()<listPresenter.PAGESIZE||listPresenter.totalPage<=1){
-            TextView tv_load_more = getView(view, R.id.tv_load_more);
-            getView(view,R.id.iv_load_more).setVisibility(View.GONE);
+            TextView tv_load_more = getView(view, com.zzm.zzmlibrary.R.id.tv_load_more);
+            getView(view,com.zzm.zzmlibrary.R.id.iv_load_more).setVisibility(View.GONE);
             tv_load_more.setText("已经加载全部");
             adapter.addFooterView(view);
         }else{
@@ -98,9 +97,9 @@ public abstract class BaseListActivity extends BaseActivity implements BaseListV
         adapter.notifyDataChangedAfterLoadMore(list, true);
         if(list.size()<listPresenter.PAGESIZE||(listPresenter.mPage-1)==listPresenter.totalPage){
             adapter.removeAllFooterView();
-            View view = getLayoutInflater().inflate(R.layout.item_footer_layout,(ViewGroup) mRecyclerView.getParent(), false);
-            TextView tv_load_more = getView(view, R.id.tv_load_more);
-            getView(view,R.id.iv_load_more).setVisibility(View.GONE);
+            View view = getLayoutInflater().inflate(com.zzm.zzmlibrary.R.layout.item_footer_layout,(ViewGroup) mRecyclerView.getParent(), false);
+            TextView tv_load_more = getView(view, com.zzm.zzmlibrary.R.id.tv_load_more);
+            getView(view,com.zzm.zzmlibrary.R.id.iv_load_more).setVisibility(View.GONE);
             tv_load_more.setText("已经加载全部");
             adapter.addFooterView(view);
         }
@@ -117,17 +116,17 @@ public abstract class BaseListActivity extends BaseActivity implements BaseListV
            adapter.setNewData(new ArrayList<>());
         }
         View emptyView = adapter.getEmptyView();
-        TextView tvNoData = getView(emptyView, R.id.tvNoData);
-        tvNoData.setText(UIUtils.getString(R.string.click_nodata));
+        TextView tvNoData = getView(emptyView, com.zzm.zzmlibrary.R.id.tvNoData);
+        tvNoData.setText(UIUtils.getString(com.zzm.zzmlibrary.R.string.click_nodata));
     }
 
     @Override
     public void noMoreData() {
         adapter.notifyDataChangedAfterLoadMore(false);
         adapter.removeAllFooterView();
-        View view = getLayoutInflater().inflate(R.layout.item_footer_layout,(ViewGroup) mRecyclerView.getParent(), false);
-        TextView tv_load_more = getView(view, R.id.tv_load_more);
-        getView(view,R.id.iv_load_more).setVisibility(View.GONE);
+        View view = getLayoutInflater().inflate(com.zzm.zzmlibrary.R.layout.item_footer_layout,(ViewGroup) mRecyclerView.getParent(), false);
+        TextView tv_load_more = getView(view, com.zzm.zzmlibrary.R.id.tv_load_more);
+        getView(view,com.zzm.zzmlibrary.R.id.iv_load_more).setVisibility(View.GONE);
         tv_load_more.setText("已经加载全部");
         adapter.addFooterView(view);
     }
@@ -135,8 +134,8 @@ public abstract class BaseListActivity extends BaseActivity implements BaseListV
     @Override
     public void noNetWork() {
         View emptyView = adapter.getEmptyView();
-        TextView tvNoData = getView(emptyView, R.id.tvNoData);
-        tvNoData.setText(UIUtils.getString(R.string.click_load));
+        TextView tvNoData = getView(emptyView, com.zzm.zzmlibrary.R.id.tvNoData);
+        tvNoData.setText(UIUtils.getString(com.zzm.zzmlibrary.R.string.click_load));
     }
 
     private AutoSwipeRefreshLayout.OnRefreshListener listener = new AutoSwipeRefreshLayout.OnRefreshListener() {

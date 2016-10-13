@@ -12,6 +12,7 @@ import android.view.ViewParent;
 import com.zzm.zzmlibrary.model.BaseView;
 import com.zzm.zzmlibrary.model.bean.BaseResponse;
 import com.zzm.zzmlibrary.presenter.BasePresenter;
+import com.zzm.zzmlibrary.utils.DialogUtils;
 import com.zzm.zzmlibrary.utils.UIUtils;
 
 
@@ -123,12 +124,12 @@ public abstract class BaseFragment extends Fragment implements BaseView {
 
     @Override
     public void showLoading() {
-
+        DialogUtils.makeLoading(getActivity()).show();
     }
 
     @Override
     public void hideLoading() {
-
+        DialogUtils.makeLoading(getActivity()).dismiss();
     }
 
     @Override
