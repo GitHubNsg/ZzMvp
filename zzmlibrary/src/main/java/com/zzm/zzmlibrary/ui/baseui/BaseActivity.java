@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.flyco.tablayout.SegmentTabLayout;
 import com.zhy.autolayout.AutoLinearLayout;
+import com.zzm.zzmlibrary.BuildConfig;
 import com.zzm.zzmlibrary.R;
 import com.zzm.zzmlibrary.common.BaseApplication;
 import com.zzm.zzmlibrary.common.Constants;
@@ -37,7 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public static List<BaseActivity> mActivities = new LinkedList<BaseActivity>();
 
     public static BaseActivity activity;
-    //    public ViewDataBinding binding;
     public BasePresenter presenter;
     public TextView mTvTitle;
     public ImageButton mLeftButton;
@@ -56,11 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         }
         onBeforeSetContentLayout();
         setContentView(getLayoutId());
-        /*if (isDataBinding()) {
-            binding = DataBindingUtil.setContentView(this, getLayoutId());
-        } else {
-            setContentView(getLayoutId());
-        }*/
         presenter = getPresenter();
         initActionBar();
         init(savedInstanceState);
@@ -107,9 +102,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        /*if (isDataBinding()) {
-            binding.unbind();
-        }*/
         if (presenter != null) {
             presenter.cancelLoad();
         }

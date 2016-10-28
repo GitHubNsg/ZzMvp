@@ -1,11 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zzm.zzmlibrary.ui.widget.AutoScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="none">
 
-    <TextView
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment4"/>
+        android:orientation="vertical">
 
-</com.zhy.autolayout.AutoLinearLayout>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftTextString="SuperTextView展示"
+            android:layout_marginTop="20px"
+            app:sUseRipple="true"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftIconRes="@android:drawable/ic_menu_add"
+            app:sLeftTextString="添加好友"
+            app:sUseRipple="true"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftIconRes="@android:drawable/ic_menu_call"
+            app:sRightIconRes="@android:drawable/ic_media_next"
+            app:sLeftTextString="联系我们"
+            app:sUseRipple="true"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftIconRes="@android:drawable/ic_menu_share"
+            app:sLeftTextString="分享"
+            app:sRightTextString="确定"
+            app:sUseRipple="true"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftIconRes="@android:drawable/ic_menu_delete"
+            app:sRightIconRes="@android:drawable/ic_media_next"
+            app:sLeftTextString="删除好友"
+            app:sRightTextString="确定"
+            app:sRightTextMarginRight="2dp"
+            app:sUseRipple="true"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:sLeftBottomTextString="186****1234"
+            app:sLeftIconRes="@android:drawable/ic_menu_upload"
+            app:sLeftTopTextString="钟子明"
+            app:sUseRipple="true"
+            app:sLineShow="none"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zzm.zzmlibrary.ui.widget.AutoScrollView>

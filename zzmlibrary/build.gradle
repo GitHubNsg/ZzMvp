@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
     }
     buildTypes {
         release {
@@ -32,11 +32,20 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
-    compile 'com.zhy:autolayout:1.4.3'
+    //https://github.com/hongyangAndroid/AndroidAutoLayout
+    compile 'com.zhy:autolayout:1.4.5'
+    //https://github.com/hongyangAndroid/okhttputils
     compile 'com.zhy:okhttputils:2.6.2'
+    //https://github.com/google/gson
     compile 'com.google.code.gson:gson:2.6.2'
+    //https://github.com/bumptech/glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //https://github.com/tbruyelle/RxPermissions
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.8'
+    //https://github.com/H07000223/FlycoTabLayout
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'
+    //https://github.com/lygttpod/SuperTextView 拷贝了源码做了适配修改
+
 }

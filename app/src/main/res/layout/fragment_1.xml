@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<com.zzm.zzmlibrary.ui.widget.AutoScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20px">
+    android:orientation="vertical"
+    android:scrollbars="none">
 
-    <TextView
-        android:id="@+id/tvAct"
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="普通Activity"
-        android:padding="20px"
-        android:textSize="48px"
-        android:gravity="center"
-        android:textColor="@color/white_ffffff"
-        android:background="@color/colorPrimary"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvActList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="列表Activity"
-        android:padding="20px"
-        android:textSize="48px"
-        android:gravity="center"
-        android:textColor="@color/white_ffffff"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="20px"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:id="@+id/tvAct"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="普通Activity"
+            app:sUseRipple="true"
+            android:layout_marginTop="20px"/>
 
-    <TextView
-        android:id="@+id/tvDialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="dialog"
-        android:padding="20px"
-        android:textSize="48px"
-        android:gravity="center"
-        android:textColor="@color/white_ffffff"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="20px"/>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:id="@+id/tvActList"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="列表Activity"
+            app:sUseRipple="true" />
 
-</com.zhy.autolayout.AutoLinearLayout>
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:id="@+id/tvDialog"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="dialog"
+            app:sUseRipple="true"
+            app:sLineShow="none"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zzm.zzmlibrary.ui.widget.AutoScrollView>

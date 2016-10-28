@@ -12,9 +12,6 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-//        jackOptions {
-//            enabled true
-//        }
     }
     buildTypes {
         debug {
@@ -38,10 +35,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    // 数据绑定
-//    dataBinding {
-//        enabled = false
-//    }
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
