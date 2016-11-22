@@ -79,6 +79,14 @@
 
         <activity android:name=".ui.activity.WeatherActivity"/>
         <activity android:name=".ui.activity.WeChatActivity"/>
+
+
+        <receiver android:name=".common.receiver.ImplicitReceiver">
+            <intent-filter>
+                <action android:name="com.zzm.b"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

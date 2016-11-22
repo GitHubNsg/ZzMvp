@@ -2,7 +2,10 @@ package com.zzm.zzmlibrary.utils;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.v7.app.AlertDialog;
+
+import com.zzm.zzmlibrary.ui.widget.ShareDialog;
 
 /**
  * Created by itzhong on 2016/10/13.
@@ -40,6 +43,15 @@ public class DialogUtils {
         return progressDialog;
     }
 
+
+    /**
+     * 得到一个分享弹窗
+     * @param context
+     * @return
+     */
+    public static ShareDialog makeShare(Context context){
+        return ShareDialog.getInstance(context);
+    }
 
     public static void disDialog(){
         if(builder!=null) {

@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+        android:id="@+id/etText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment2"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:text="发送点什么吧"
+        android:padding="20px"/>
+
+    <com.zzm.zzmlibrary.ui.widget.SuperTextView
+        android:id="@+id/tvObviousBroadcast"
+        android:layout_width="match_parent"
+        android:layout_height="110px"
+        app:sLeftTextSize="16sp"
+        app:sLeftTextString="发送显示广播"
+        app:sUseRipple="true"
+        android:layout_marginTop="20px"/>
+
+    <com.zzm.zzmlibrary.ui.widget.SuperTextView
+        android:id="@+id/tvImplicitBroadcast"
+        android:layout_width="match_parent"
+        android:layout_height="110px"
+        app:sLeftTextSize="16sp"
+        app:sLeftTextString="发送隐式广播"
+        app:sUseRipple="true"
+        android:layout_marginTop="20px"/>
+
+    <TextView
+        android:id="@+id/tvDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="接受广播描述"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="36px"
+        android:layout_marginTop="40px"/>
 
 </com.zhy.autolayout.AutoLinearLayout>
