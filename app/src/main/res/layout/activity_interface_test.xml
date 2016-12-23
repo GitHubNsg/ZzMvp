@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zzm.zzmlibrary.ui.widget.AutoScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/title_bar"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="接口测试"
+            android:gravity="center"
+            android:padding="20px"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="36px"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:background="@color/white_ffffff"
+            android:layout_marginTop="10px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:gravity="center_vertical"
+                android:text="http://10.200.0.171:11080/app/"
+                android:textColor="@color/black_555555"
+                android:textSize="28px" />
+
+            <View
+                style="@style/Divider_horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20px" />
+
+            <com.zzm.zzmlibrary.ui.widget.ToggleButton
+                android:id="@+id/mTb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:checked="false"
+                android:layout_marginRight="20px" />
+
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:background="@color/white_ffffff">
+
+            <TextView
+                android:id="@+id/mTvUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:gravity="center_vertical"
+                android:text="自定义服务器:"
+                android:textColor="@color/black_555555"
+                android:textSize="28px" />
+
+            <View
+                style="@style/Divider_horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20px" />
+
+            <com.zzm.zzmlibrary.ui.widget.ToggleButton
+                android:id="@+id/mTb3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20px"
+                android:checked="false"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/mCustomEdit"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:orientation="horizontal"
+            android:layout_marginTop="20px"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/ip1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="10"
+                android:background="@color/gray_f2f2f2"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/ip2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="200"
+                android:background="@color/gray_f2f2f2"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/ip3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="0"
+                android:background="@color/gray_f2f2f2"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/ip4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="0"
+                android:background="@color/gray_f2f2f2"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/ip5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="0"
+                android:background="@color/gray_f2f2f2"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/ipButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="确定"
+                android:textSize="38px"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white_ffffff"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请求头:"
+            android:padding="20px"
+            android:textSize="28px"
+            android:textColor="@color/black_555555"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/layoutHeaders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请求接口:"
+                android:padding="20px"
+                android:textSize="28px"
+                android:textColor="@color/black_555555"/>
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请求参数:"
+            android:padding="20px"
+            android:textSize="28px"
+            android:textColor="@color/black_555555"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/layoutValues"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="GET请求"
+            android:textSize="38px"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white_ffffff"
+            android:layout_marginTop="40px"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="POST请求"
+            android:textSize="38px"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white_ffffff"
+            android:layout_margin="40px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zzm.zzmlibrary.ui.widget.AutoScrollView>

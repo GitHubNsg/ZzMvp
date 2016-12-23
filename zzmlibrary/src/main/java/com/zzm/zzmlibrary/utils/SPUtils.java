@@ -52,6 +52,14 @@ public class SPUtils {
         return sp.getString(key, defValue);
     }
 
+    public static void saveMyString(String spName, String key, String value) {
+        UIUtils.getContext().getSharedPreferences(spName, 0).edit().putString(key, value).commit();
+    }
+
+    public static String getMyString(String spName, String key, String defValue) {
+        return UIUtils.getContext().getSharedPreferences(spName, 0).getString(key, defValue);
+    }
+
     /**
      * 存Boolean
      *
@@ -80,6 +88,14 @@ public class SPUtils {
         if (sp == null)
             sp = UIUtils.getContext().getSharedPreferences(DEFAULT_SP_NAME, 0);
         return sp.getBoolean(key, defValue);
+    }
+
+    public static void saveMyBoolean(String spName, String key, boolean value) {
+        UIUtils.getContext().getSharedPreferences(spName, 0).edit().putBoolean(key, value).commit();
+    }
+
+    public static boolean getMyBoolean(String spName, String key, boolean defValue) {
+        return UIUtils.getContext().getSharedPreferences(spName, 0).getBoolean(key, defValue);
     }
 
     /**
@@ -112,6 +128,14 @@ public class SPUtils {
         return usersp.getInt(key, defValue);
     }
 
+    public static void saveMyInt(String spName, String key, int value) {
+        UIUtils.getContext().getSharedPreferences(spName, 0).edit().putInt(key, value).commit();
+    }
+
+    public static int getMyInt(String spName, String key, int defValue) {
+        return UIUtils.getContext().getSharedPreferences(spName, 0).getInt(key, defValue);
+    }
+
     /**
      * 存long
      *
@@ -140,6 +164,14 @@ public class SPUtils {
         if (sp == null)
             sp = UIUtils.getContext().getSharedPreferences(DEFAULT_SP_NAME, 0);
         return sp.getLong(key, defValue);
+    }
+
+    public static void saveMyLong(String spName, String key, long value) {
+        UIUtils.getContext().getSharedPreferences(spName, 0).edit().putLong(key, value).commit();
+    }
+
+    public static long getMyLong(String spName, String key, long defValue) {
+        return UIUtils.getContext().getSharedPreferences(spName, 0).getLong(key, defValue);
     }
 
     /**
@@ -171,6 +203,14 @@ public class SPUtils {
             sp.edit().clear().commit();
         }
     }
+
+    /**
+     * 清空指定SP数据
+     */
+    public static void clearSpMine(String spName) {
+        UIUtils.getContext().getSharedPreferences(spName, 0).edit().clear().commit();
+    }
+
 
 
 }

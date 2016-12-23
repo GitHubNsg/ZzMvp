@@ -69,7 +69,8 @@
 
 
 
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.MainActivity"
+            android:hardwareAccelerated="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,13 +80,8 @@
 
         <activity android:name=".ui.activity.WeatherActivity"/>
         <activity android:name=".ui.activity.WeChatActivity"/>
+        <activity android:name=".ui.activity.InterfaceTestActivity"/>
 
-
-        <receiver android:name=".common.receiver.ImplicitReceiver">
-            <intent-filter>
-                <action android:name="com.zzm.b"/>
-            </intent-filter>
-        </receiver>
 
     </application>
 

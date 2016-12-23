@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="110px">
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="name"
+        android:gravity="left|center_vertical"
+        android:textColor="@android:color/black"/>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="value"
+        android:gravity="left|center_vertical"
+        android:textColor="@android:color/holo_red_dark"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="删除"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"/>
+</com.zhy.autolayout.AutoLinearLayout>

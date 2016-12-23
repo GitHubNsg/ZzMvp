@@ -34,8 +34,15 @@
             android:layout_height="110px"
             app:sLeftTextSize="16sp"
             app:sLeftTextString="dialog"
-            app:sUseRipple="true"
-            app:sLineShow="none"/>
+            app:sUseRipple="true"/>
+
+        <com.zzm.zzmlibrary.ui.widget.SuperTextView
+            android:id="@+id/tvInterface"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            app:sLeftTextSize="16sp"
+            app:sLeftTextString="接口测试"
+            app:sUseRipple="true"/>
 
     </com.zhy.autolayout.AutoLinearLayout>
 

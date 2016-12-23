@@ -59,4 +59,10 @@
         </attr>
 
     </declare-styleable>
+
+    <declare-styleable name="ToggleButton">
+        <attr name="onColor" format="color|reference"/>
+        <attr name="offColor" format="color|reference"/>
+    </declare-styleable>
+
 </resources>
