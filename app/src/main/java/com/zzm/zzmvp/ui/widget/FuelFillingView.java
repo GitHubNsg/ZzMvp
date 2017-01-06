@@ -108,8 +108,15 @@ public class FuelFillingView extends View {
                 -mRadius+mScaleLongLenth+mRectText.height()+dpToPx(6),
                 mRadius-mScaleLongLenth-mRectText.height()-dpToPx(6),
                 mRadius-mScaleLongLenth-mRectText.height()-dpToPx(6));
-        eventX = mRadiusChoose;
-        eventY = 0;
+        mBitmapCar = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_car);
+        Bitmap mBitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.pointer_icon);
+        //将指针进行缩放和旋转进行适配
+        matrix.postScale(1.0f,((float) (mRadiusChoose-mRadiusSmall))/(float) mBitmap.getHeight());
+        matrix.postRotate(-90);
+        mBitmapPoint = Bitmap.createBitmap(mBitmap, 0, 0, mBitmap.getWidth(), mBitmap.getHeight(), matrix, true);
+        if(!mBitmap.isRecycled()){
+            mBitmap.recycle();
+        }
     }
 
     @Override
@@ -144,10 +151,6 @@ public class FuelFillingView extends View {
         backgroundColor = Color.parseColor("#ffffff");
         mTexts = new String[]{"","及时充","","3个月","","6个月","","12个月","","24个月",""};
         mTextsValue = new String[]{"","0折","","9.8折","","9.7折","","9.6折","","9.5折",""};
-        mBitmapCar = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_car);
-        Bitmap mBitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.pointer_icon);
-        matrix.postRotate(-90);
-        mBitmapPoint = Bitmap.createBitmap(mBitmap, 0, 0, mBitmap.getWidth(), mBitmap.getHeight(), matrix, true);
 
         mPaintArc = new Paint();
         mPaintArc.setAntiAlias(true);
